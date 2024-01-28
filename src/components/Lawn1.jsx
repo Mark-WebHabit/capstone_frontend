@@ -15,13 +15,12 @@ const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
 
   // push the divs directly to this array instead of passing it in a ref
   const plotArr = [];
+  const dispatch = useDispatch();
+  const areaPlots = useSelector((state) => state.restApi.areaPlots); // if this is empty meaning it is still fetching so the area shuldnt be displayed
+  const [lawn1Plots, setLawn1Plots] = useState(null);
 
   const [showLawnContainer, setShowLawnContainer] = useState(false);
   const [showPlots, setShowPlots] = useState(false);
-  const [lawn1Plots, setLawn1Plots] = useState(null);
-
-  const dispatch = useDispatch();
-  const areaPlots = useSelector((state) => state.restApi.areaPlots); // if this is empty meaning it is still fetching so the area shuldnt be displayed
 
   const [plotSize, setPlotSize] = useState({
     width: 0,
@@ -67,6 +66,19 @@ const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
     };
   }, [lawn1Ref.current]);
 
+  // fetching the specific lawn in the database
+  useEffect(() => {
+    const fetchLawn = async () => {
+      if (lawn1ContainerRef.current) {
+        await dispatch(getLawn("Lawn1"));
+      }
+    };
+
+    fetchLawn();
+  }, [lawn1ContainerRef]);
+
+  const lawn1PlotRow1 = Array.from({ length: 12 }, (_, index) => 205 + index);
+
   // rendering the divs that represent the plots
   const renderRow = (arr, plotNum) => {
     return (
@@ -95,17 +107,6 @@ const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
       </div>
     );
   };
-
-  // fetching the specific lawn in the database
-  useEffect(() => {
-    const fetchLawn = async () => {
-      if (lawn1ContainerRef.current) {
-        await dispatch(getLawn("Lawn1"));
-      }
-    };
-
-    fetchLawn();
-  }, [lawn1ContainerRef]);
 
   // // get the plots that belong to this lawn and store it in a state
   useEffect(() => {
@@ -155,8 +156,6 @@ const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
       }
     }
   }, [lawn1Plots, selectedPlot, map]);
-
-  const lawn1PlotRow1 = Array.from({ length: 12 }, (_, index) => 205 + index);
 
   if (!areaPlots) {
     return <LoadingScreen />;
