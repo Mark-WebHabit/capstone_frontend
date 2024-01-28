@@ -10,8 +10,8 @@ import {
 import LoadingScreen from "./LoadingScreen";
 
 const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
-  const lawn1ContainerRef = useRef();
-  const lawn1Ref = useRef();
+  const lawn1ContainerRef = useRef(0);
+  const lawn1Ref = useRef(0);
 
   // push the divs directly to this array instead of passing it in a ref
   const plotArr = [];
@@ -31,6 +31,10 @@ const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
     dispatch(clearAreaPlots());
     dispatch(getAreaPlots("Lawn1"));
   }, []);
+
+  useEffect(() => {
+    console.log(areaPlots);
+  }, [areaPlots]);
 
   // make sure the container ref is not null before rendering its child and setting its size as the container size state
 
@@ -117,9 +121,7 @@ const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
   // listen if the state that hollds the plots that belong to this lawn is already set
   // if the plotName matches the data-name of div set the id to the status of plot in the db
   useEffect(() => {
-    console.log(plotArr);
     if (lawn1Plots && lawn1Plots.length && plotArr) {
-      console.log(plotArr);
       plotArr.forEach((plot) => {
         const matched = lawn1Plots.find(
           (el) => el.plotName == plot.getAttribute("data-name")
