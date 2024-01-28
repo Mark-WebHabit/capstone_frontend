@@ -117,7 +117,9 @@ const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
   // listen if the state that hollds the plots that belong to this lawn is already set
   // if the plotName matches the data-name of div set the id to the status of plot in the db
   useEffect(() => {
+    console.log(plotArr);
     if (lawn1Plots && lawn1Plots.length && plotArr) {
+      console.log(plotArr);
       plotArr.forEach((plot) => {
         const matched = lawn1Plots.find(
           (el) => el.plotName == plot.getAttribute("data-name")
