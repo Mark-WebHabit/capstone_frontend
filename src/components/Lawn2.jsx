@@ -156,7 +156,7 @@ const Lawn2 = ({ selectedPlot, setSelectedPlot, map }) => {
         }
       });
     }
-  }, [lawn2Plots]);
+  }, [lawn2Plots, plotArr]);
 
   useEffect(() => {
     if (lawn2Plots && lawn2Plots.length && plotArr.length) {
