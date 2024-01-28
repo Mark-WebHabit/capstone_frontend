@@ -145,7 +145,7 @@ const Lawn2 = ({ selectedPlot, setSelectedPlot, map }) => {
   // listen if the state that hollds the plots that belong to this lawn is already set
   // if the plotName matches the data-name of div set the id to the status of plot in the db
   useEffect(() => {
-    if (lawn2Plots && lawn2Plots.length && plotArr) {
+    if (lawn2Plots && lawn2Plots.length && plotArr.length) {
       plotArr.forEach((plot) => {
         const matched = lawn2Plots.find(
           (el) => el.plotName == plot.getAttribute("data-name")
@@ -159,7 +159,7 @@ const Lawn2 = ({ selectedPlot, setSelectedPlot, map }) => {
   }, [lawn2Plots]);
 
   useEffect(() => {
-    if (lawn2Plots && lawn2Plots.length && plotArr) {
+    if (lawn2Plots && lawn2Plots.length && plotArr.length) {
       if (selectedPlot || map) {
         plotArr.forEach((plot) => {
           if (plot.getAttribute("data-name") == selectedPlot) {
@@ -183,7 +183,7 @@ const Lawn2 = ({ selectedPlot, setSelectedPlot, map }) => {
         });
       }
     }
-  }, [lawn2Plots, selectedPlot, map]);
+  }, [lawn2Plots, selectedPlot, map, plotArr]);
 
   if (!areaPlots) {
     return <LoadingScreen />;
