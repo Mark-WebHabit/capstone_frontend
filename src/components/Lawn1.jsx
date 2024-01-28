@@ -155,7 +155,7 @@ const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
         });
       }
     }
-  }, [lawn1Plots, selectedPlot, map, areaPlots]);
+  }, [lawn1Plots, selectedPlot, map, plotArr]);
 
   if (!areaPlots) {
     return <LoadingScreen />;
