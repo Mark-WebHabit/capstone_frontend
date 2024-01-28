@@ -32,10 +32,6 @@ const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
     dispatch(getAreaPlots("Lawn1"));
   }, []);
 
-  useEffect(() => {
-    console.log(areaPlots);
-  }, [areaPlots]);
-
   // make sure the container ref is not null before rendering its child and setting its size as the container size state
 
   useEffect(() => {
@@ -96,10 +92,10 @@ const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
       >
         {arr.map((plot, index) => (
           <Plot
+            data-name={plotNum + index}
             ref={(element) => {
               plotArr.push(element);
             }}
-            data-name={plotNum + index}
             key={index}
             $width={plotSize.width}
             onClick={(e) => {
@@ -123,6 +119,7 @@ const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
   useEffect(() => {
     if (lawn1Plots && lawn1Plots.length && plotArr) {
       plotArr.forEach((plot) => {
+        console.log(plot);
         const matched = lawn1Plots.find(
           (el) => el.plotName == plot.getAttribute("data-name")
         );
