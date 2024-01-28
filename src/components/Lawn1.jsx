@@ -113,12 +113,14 @@ const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
     // the area plot fetched were based on the active selected area type so no validation were made
     setLawn1Plots(areaPlots);
   }, [areaPlots]);
+  useEffect(() => {
+    console.log(plotArr);
+  }, [plotArr]);
 
   // listen if the state that hollds the plots that belong to this lawn is already set
   // if the plotName matches the data-name of div set the id to the status of plot in the db
   useEffect(() => {
     if (lawn1Plots && lawn1Plots.length && plotArr) {
-      console.log(plotArrlot);
       plotArr.forEach((plot) => {
         const matched = lawn1Plots.find(
           (el) => el.plotName == plot.getAttribute("data-name")
