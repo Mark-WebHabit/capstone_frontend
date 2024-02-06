@@ -1,1 +1,13 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1874 257.19"><defs><style>.cls-1{fill:#fdfdfd;}.cls-1,.cls-2,.cls-3{stroke:#000;stroke-miterlimit:10;stroke-width:2px;}.cls-2{fill:none;}.cls-3{fill:#fff;}</style></defs><path class="cls-1" d="M0,74.48l46.73-11L1500.48,44.22s15.6-3.67,36.69,30.26c0,0,87.24,176.11,334.83,180.69V0H0Z" transform="translate(1 1)"/><path class="cls-2" d="M0,64.39l37.55-11L1500.48,34.13s22-5.51,47.7,30.26c0,0,43.21,153.18,323.82,183.44" transform="translate(1 1)"/><path class="cls-1" d="M1801,0s13.55,47.27,71,53.08" transform="translate(1 1)"/><path class="cls-1" d="M1762.19,0S1776.05,72,1872,79.68" transform="translate(1 1)"/><path class="cls-3" d="M1713.89,0S1719.8,102,1872,115.45" transform="translate(1 1)"/><path class="cls-2" d="M1702,0s3.77,106.59,170,124.93" transform="translate(1 1)"/></svg>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1874 257.19">
+	<defs>
+		<style>
+			.cls-1{fill:#fdfdfd;}.cls-1,.cls-2,.cls-3{stroke:#000;stroke-miterlimit:10;stroke-width:2px;}.cls-2{fill:none;}.cls-3{fill:#fff;}
+		</style>
+	</defs>
+	<path class="cls-1" d="M0,74.48l46.73-11L1500.48,44.22s15.6-3.67,36.69,30.26c0,0,87.24,176.11,334.83,180.69V0H0Z" transform="translate(1 1)" />
+	<path class="cls-2" d="M0,64.39l37.55-11L1500.48,34.13s22-5.51,47.7,30.26c0,0,43.21,153.18,323.82,183.44" transform="translate(1 1)" />
+	<path class="cls-1" d="M1801,0s13.55,47.27,71,53.08" transform="translate(1 1)" />
+	<path class="cls-1" d="M1762.19,0S1776.05,72,1872,79.68" transform="translate(1 1)" />
+	<path class="cls-3" d="M1713.89,0S1719.8,102,1872,115.45" transform="translate(1 1)" />
+	<path class="cls-2" d="M1702,0s3.77,106.59,170,124.93" transform="translate(1 1)" />
+</svg>

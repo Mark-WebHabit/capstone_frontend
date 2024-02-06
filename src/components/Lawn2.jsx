@@ -278,7 +278,7 @@ const Container = styled.div.attrs((props) => ({
     height: "100%",
     position: "relative",
     zIndex: 4,
-    background: "#f2f2f8",
+    background: "transparent",
     transform: "rotate(-15deg)",
   },
 }))`

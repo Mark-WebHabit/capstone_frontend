@@ -1,0 +1,230 @@
+* {
+  transition: all 100ms;
+  cursor: pointer;
+}
+
+svg {
+  height: 100%;
+  width: 100%;
+}
+
+.cls-1 {
+  letter-spacing: 0em;
+}
+
+.cls-2,
+.cls-3,
+.cls-4,
+.cls-5,
+.cls-6,
+.cls-7 {
+  stroke: #231f20;
+  stroke-miterlimit: 10;
+}
+
+.cls-2,
+.cls-6 {
+  fill: none;
+}
+
+.cls-8 {
+  letter-spacing: 0em;
+}
+
+.cls-3 {
+  opacity: 0.69;
+}
+
+.cls-3,
+.cls-9,
+.cls-4,
+.cls-10,
+.cls-11,
+.cls-12,
+.cls-7,
+.cls-13,
+.cls-14 {
+  fill: #231f20;
+}
+
+.cls-15 {
+  letter-spacing: -0.08em;
+}
+
+.cls-9 {
+  font-size: 7px;
+}
+
+.cls-9,
+.cls-11,
+.cls-13,
+.cls-16 {
+  font-family: MyriadPro-Regular, "Myriad Pro";
+}
+
+.cls-17 {
+  letter-spacing: 0.02em;
+}
+
+.cls-18 {
+  letter-spacing: 0em;
+}
+
+.cls-19 {
+  isolation: isolate;
+}
+
+.cls-20 {
+  letter-spacing: 0em;
+}
+
+.cls-21 {
+  letter-spacing: -0.04em;
+}
+
+.cls-5 {
+  fill: #a97c50;
+}
+
+.cls-10 {
+  font-size: 27.82px;
+}
+
+.cls-10,
+.cls-14 {
+  font-family: Bahnschrift, Bahnschrift;
+  font-variation-settings: "wght" 400, "wdth" 100;
+}
+
+.cls-6 {
+  stroke-width: 2px;
+}
+
+.cls-11 {
+  font-size: 10.8px;
+}
+
+.cls-22 {
+  letter-spacing: -0.02em;
+}
+
+.cls-23 {
+  letter-spacing: -0.07em;
+}
+
+.cls-24 {
+  letter-spacing: 0em;
+}
+
+.cls-25 {
+  mix-blend-mode: screen;
+}
+
+.cls-12 {
+  stroke-width: 0px;
+}
+
+.cls-26 {
+  letter-spacing: 0em;
+}
+
+.cls-7 {
+  opacity: 0.7;
+}
+
+.cls-13 {
+  font-size: 13.62px;
+}
+
+.cls-16 {
+  fill: #fff;
+  font-size: 14.73px;
+}
+
+.cls-27 {
+  letter-spacing: -0.02em;
+}
+
+.cls-28 {
+  letter-spacing: 0em;
+}
+
+.cls-29 {
+  letter-spacing: 0.02em;
+}
+
+.cls-14 {
+  font-size: 23.12px;
+}
+
+.cls-30 {
+  filter: url(#luminosity-noclip);
+}
+
+.cls-31 {
+  mask: url(#mask);
+}
+
+.cls-32 {
+  letter-spacing: 0em;
+}
+
+.cls-33 {
+  letter-spacing: -0.04em;
+}
+
+.cls-34 {
+  letter-spacing: 0em;
+}
+
+.cls-35 {
+  letter-spacing: -0.01em;
+}
+
+/* #lawn1 #frame .cls-2 {
+  fill: red;
+} */
+
+#lawn1:hover #frame .cls-2 {
+  fill: red;
+}
+#lawn2:hover #frame-2 .cls-2 {
+  fill: blue;
+}
+#lawn3:hover #frame-3 .cls-2 {
+  fill: green;
+}
+#lawn4:hover #frame-4 .cls-2 {
+  fill: yellow;
+}
+#lawn5:hover #frame-5 .cls-2 {
+  fill: pink;
+}
+
+#parkingarea:hover #frame-6 .cls-2 {
+  fill: aqua;
+}
+#gardenlawn1:hover #frame-7 .cls-2 {
+  fill: purple;
+}
+#lawn6a:hover #frame-8 .cls-2 {
+  fill: khaki;
+}
+#lawn6a:hover #border-8 {
+  display: none;
+}
+#lawn6b:hover #frame-9 .cls-2 {
+  fill: beige;
+}
+#lawn7:hover #frame-10 .cls-2 {
+  fill: indianred;
+}
+#lawn7:hover #border-10 {
+  display: none;
+}
+#firstaidbooth:hover #frame-11 .cls-2 {
+  fill: gray;
+}
+#firstaidbooth:hover #border-11 {
+  display: none;
+}

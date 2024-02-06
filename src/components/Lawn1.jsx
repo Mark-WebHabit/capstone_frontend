@@ -207,7 +207,7 @@ export default Lawn1;
 const Main = styled.div`
   height: 100%;
   width: 100%;
-  background-color: #f2f2f8;
+  background-color: transparent;
   z-index: 1;
 `;
 

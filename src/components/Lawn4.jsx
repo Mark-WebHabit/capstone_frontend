@@ -250,6 +250,7 @@ const Container = styled.div`
   height: 100%;
   position: relative;
   padding-top: 3%;
+  background-color: transparent;
 `;
 
 const RoadTop = styled.img`

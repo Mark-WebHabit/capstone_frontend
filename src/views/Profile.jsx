@@ -155,7 +155,6 @@ const Profile = () => {
         <p className="changePass" onClick={() => setChagePass(!changePass)}>
           Change Password
         </p>
-        <p className="errorPass">error message</p>
         <ChangePassForm $changePass={changePass}>
           <div className="inputDiv">
             <Label $content={pass.currentPass} htmlFor="currentPass">

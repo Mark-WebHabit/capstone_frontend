@@ -1,4 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import Particles from "react-particles";
+import { loadSlim } from "tsparticles-slim";
 import styled, { keyframes } from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -43,6 +45,16 @@ const Mapping = () => {
   // set the selectedMap dynamically
   const [map, setMap] = useState(null);
   const [selectedPlot, setSelectedPlot] = useState(null);
+
+  const particlesInit = useCallback(async (engine) => {
+    // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+    // starting from v2 you can add only the features you need reducing the bundle size
+    //await loadFull(engine);
+    await loadSlim(engine);
+  }, []);
+
+  const particlesLoaded = useCallback(async (container) => {}, []);
 
   // everytime the map changes clear the area plots
   useEffect(() => {
@@ -199,6 +211,80 @@ const Mapping = () => {
   // default is noselected map
   return (
     <Container ref={mappingRef}>
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        loaded={particlesLoaded}
+        options={{
+          background: {
+            color: {
+              value: "white",
+            },
+          },
+          fpsLimit: 120,
+          interactivity: {
+            events: {
+              onClick: {
+                enable: true,
+                mode: "push",
+              },
+              onHover: {
+                enable: true,
+                mode: "repulse",
+              },
+              resize: true,
+            },
+            modes: {
+              push: {
+                quantity: 4,
+              },
+              repulse: {
+                distance: 200,
+                duration: 0.4,
+              },
+            },
+          },
+          particles: {
+            color: {
+              value: "#000000",
+            },
+            links: {
+              color: "#000000",
+              distance: 150,
+              enable: true,
+              opacity: 0.3,
+              width: 1,
+            },
+            move: {
+              direction: "none",
+              enable: true,
+              outModes: {
+                default: "bounce",
+              },
+              random: false,
+              speed: 6,
+              straight: false,
+            },
+            number: {
+              density: {
+                enable: true,
+                area: 800,
+              },
+              value: 2,
+            },
+            opacity: {
+              value: 0.5,
+            },
+            shape: {
+              type: "edge",
+            },
+            size: {
+              value: { min: 1, max: 5 },
+            },
+          },
+          detectRetina: true,
+        }}
+      />
       {mapLoading ? (
         <Loading>
           <h1>Loading...</h1>
@@ -393,7 +479,7 @@ const Mapping = () => {
                     {searchStatus == "done" ? (
                       <p className="noMatched">No people matches the search</p>
                     ) : (
-                      <p className="noMatched">Search for deaceaseds...</p>
+                      <p className="noMatched">Search death records</p>
                     )}
                   </>
                 )}
@@ -532,7 +618,7 @@ const Mapping = () => {
                     {searchStatus == "done" ? (
                       <p className="noMatched">No people matches the search</p>
                     ) : (
-                      <p className="noMatched">Search for deaceaseds...</p>
+                      <p className="noMatched">Search death records</p>
                     )}
                   </>
                 )}
@@ -564,8 +650,15 @@ const Container = styled.div`
   width: 100%;
   position: relative;
   overflow-y: hidden;
-  background-color: #f2f2f8;
+  background: #f2f2f8;
   z-index: 3;
+
+  & #tsparticles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
 `;
 
 const Legend = styled.div`

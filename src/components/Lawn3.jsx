@@ -272,10 +272,16 @@ const Main = styled.div`
   display: grid;
   place-items: center;
   overflow-y: scroll
-  position: relative
+  position: relative;
+  background-color: transparent;
 
   @media(max-width: 530px){
     overflow: hidden;
+  }
+
+  & *{
+  overflow: hidden;
+
   }
 `;
 
@@ -506,7 +512,7 @@ const Frame2 = styled.div`
   align-items: center;
   gap: 7.52211%;
   z-index: 1;
-  background: #f2f2f8;
+  // background: #f2f2f8;
   @media (max-width: 500px) {
     border-width: 8px;
   }
