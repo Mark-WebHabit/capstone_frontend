@@ -217,7 +217,6 @@ const Profile = () => {
               }}
             />
           </div>
-          <p className="forgotPass">Forgot Password</p>
         </ChangePassForm>
       </AccountSetting>
       <LoginHistory>

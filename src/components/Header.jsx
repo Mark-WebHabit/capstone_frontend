@@ -41,6 +41,22 @@ const Header = () => {
       window.removeEventListener("resize", setHeaderHight);
     };
   }, [ref, dispatch]);
+
+  useEffect(() => {
+    function handleClickAnywhere(e) {
+      const target = e.target.dataset.name;
+
+      if (!target || target !== "toggle-profile") {
+        setShowProfileModal(false);
+      }
+    }
+
+    window.addEventListener("click", handleClickAnywhere);
+
+    return () => {
+      window.removeEventListener("click", handleClickAnywhere);
+    };
+  }, []);
   return (
     <Container ref={ref}>
       <Wrapper>
@@ -121,26 +137,42 @@ const Header = () => {
             </NavLink>
           )}
           {auth && (
-            <div className="profileIcon">
+            <div className="profileIcon" data-name="toggle-profile">
               <img
                 src="/images/dp.png"
                 alt="Profile"
                 onClick={() => setShowProfileModal(!showProfileModal)}
+                data-name="toggle-profile"
               />
 
               {showProfileModal && (
-                <div className="profileModal">
-                  <p className="email">{user.username}</p>
+                <div className="profileModal" data-name="toggle-profile">
+                  <p className="email" data-name="toggle-profile">
+                    {user.username}
+                  </p>
                   <div
                     className="logout"
                     onClick={() => dispatch(logout(user.email))}
+                    data-name="toggle-profile"
                   >
-                    <img src="/images/logout.png" alt="Logout" />
-                    <p>Logout</p>
+                    <img
+                      src="/images/logout.png"
+                      alt="Logout"
+                      data-name="toggle-profile"
+                    />
+                    <p data-name="toggle-profile">Logout</p>
                   </div>
-                  <div className="profile" onClick={() => navigate("/profile")}>
-                    <img src="/images/accntsetting.png" alt="Profile" />
-                    <p>Account Setting</p>
+                  <div
+                    className="profile"
+                    onClick={() => navigate("/profile")}
+                    data-name="toggle-profile"
+                  >
+                    <img
+                      src="/images/accntsetting.png"
+                      alt="Profile"
+                      data-name="toggle-profile"
+                    />
+                    <p data-name="toggle-profile">Account Setting</p>
                   </div>
                 </div>
               )}

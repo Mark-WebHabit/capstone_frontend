@@ -136,6 +136,7 @@ const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
         plotArr.forEach((plot) => {
           if (plot.getAttribute("data-name") == selectedPlot) {
             plot.style.background = "aqua";
+            plot.style.border = "2px solid aqua";
           } else {
             switch (plot.getAttribute("id")) {
               case "reserve":
