@@ -116,7 +116,7 @@ const Contact = () => {
           <Wrapper>
             <Icon src="/images/email.png" alt="EmailIcon" />
             <Text>
-              holyangels@ymail.com <br /> holyangels.morong@gmail.com
+              holyangels@gamil.com <br /> holyangels.morong@gmail.com
             </Text>
           </Wrapper>
         </Grid>

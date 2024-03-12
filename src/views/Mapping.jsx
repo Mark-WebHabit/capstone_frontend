@@ -331,6 +331,10 @@ const Mapping = () => {
                     <div className="withInterment"></div>
                     <p>With Interment</p>
                   </div>
+                  <div className="desc">
+                    <div className="selected"></div>
+                    <p>Selected</p>
+                  </div>
                 </div>
               </>
             ) : (
@@ -720,6 +724,10 @@ const Legend = styled.div`
       }
       & .withInterment {
         background-color: #004d99;
+      }
+
+      & .selected {
+        background-color: aqua;
       }
     }
   }

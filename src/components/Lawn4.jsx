@@ -150,7 +150,7 @@ const Lawn4 = ({ selectedPlot, setSelectedPlot, map }) => {
       if (selectedPlot || map) {
         plotArr.forEach((plot) => {
           if (plot.getAttribute("data-name") == selectedPlot) {
-            plot.style.background = "purple";
+            plot.style.background = "aqua";
           } else {
             switch (plot.getAttribute("id")) {
               case "reserve":
