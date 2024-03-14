@@ -28,6 +28,8 @@ const Lawn2 = ({ selectedPlot, setSelectedPlot, map }) => {
     height: 0.0242457,
   });
 
+  const [individualPlotName, setIndividualPlotName] = useState("");
+
   useEffect(() => {
     dispatch(clearAreaPlots());
     dispatch(getAreaPlots("Lawn2"));
@@ -99,6 +101,13 @@ const Lawn2 = ({ selectedPlot, setSelectedPlot, map }) => {
   const frame2Row23 = Array.from({ length: 2 });
   const frame2Row24 = Array.from({ length: 1 });
 
+  const handleHover = (e) => {
+    setIndividualPlotName(e.target.getAttribute("name"));
+  };
+  const handleMouseLeave = () => {
+    setIndividualPlotName("");
+  };
+
   const renderColumn = (arr = null, plotNum = 0, margin = null) => {
     const width = plotSize.width * arr.length;
     const marginLeft = margin ? plotSize.width * margin : 0;
@@ -112,6 +121,7 @@ const Lawn2 = ({ selectedPlot, setSelectedPlot, map }) => {
             }}
             key={index}
             data-name={plotNum + index}
+            $name={individualPlotName}
             style={{
               width: `${plotSize.width}px`,
               height: `${plotSize.height}px`,
@@ -120,6 +130,8 @@ const Lawn2 = ({ selectedPlot, setSelectedPlot, map }) => {
               setSelectedPlot(e.target.getAttribute("data-name"));
               dispatch(getPlotInfo(e.target.getAttribute("data-name")));
             }}
+            onMouseEnter={handleHover}
+            onMouseLeave={handleMouseLeave}
           ></Plot>
         ))}
       </PlotRow>
@@ -153,6 +165,7 @@ const Lawn2 = ({ selectedPlot, setSelectedPlot, map }) => {
         if (matched) {
           plot.setAttribute("id", matched.status);
           plot.setAttribute("data-name", matched._id);
+          plot.setAttribute("name", matched.plotName);
         }
       });
     }
@@ -164,7 +177,9 @@ const Lawn2 = ({ selectedPlot, setSelectedPlot, map }) => {
         plotArr.forEach((plot) => {
           if (plot.getAttribute("data-name") == selectedPlot) {
             plot.style.background = "aqua";
+            plot.style.borderColor = "aqua";
           } else {
+            plot.style.borderColor = "black";
             switch (plot.getAttribute("id")) {
               case "reserve":
                 plot.style.background = "#e6e600";
@@ -280,6 +295,7 @@ const Container = styled.div.attrs((props) => ({
     zIndex: 4,
     background: "transparent",
     transform: "rotate(-15deg)",
+    // backgroundColor: "black",
   },
 }))`
   & .child1 {
@@ -382,6 +398,22 @@ const Plot = styled.div`
     box-shadow: 0px 0px 18px 14px aqua inset;
     -webkit-box-shadow: 0px 0px 18px 14px aqua inset;
     -moz-box-shadow: 0px 0px 18px 14px aqua inset;
+    position: relative;
+
+
+    &::after {
+      position: absolute;
+      content: "${(props) => props.$name}";
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      background: url(/images/chat.png) no-repeat center center / contain;
+      padding: 0.5em;
+      padding-bottom: 1em;
+      font-size: 1.3rem;
+      font-weight: bold;
+      pointer-events: none;
+      color: white;
   }
 `;
 
@@ -427,7 +459,7 @@ const EmptyBoxes = styled.div`
   top: 17.8022%;
   right: -26.9%;
   transform: rotate(-345.438deg);
-  background-color: white;
+  background-color: transparent;
   z-index: 1;
   border-top: none;
   border-bottom: none;

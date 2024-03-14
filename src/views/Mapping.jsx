@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import Particles from "react-particles";
 import { loadSlim } from "tsparticles-slim";
+
 import styled, { keyframes } from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -41,6 +42,7 @@ const Mapping = () => {
     (state) => state.restApi.areaPlotsLoading
   );
   const [disableLegendNav, setDisableLegendNav] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   // set the selectedMap dynamically
   const [map, setMap] = useState(null);
@@ -145,6 +147,7 @@ const Mapping = () => {
             key={map}
             selectedPlot={selectedPlot}
             setSelectedPlot={setSelectedPlot}
+            isDarkMode={isDarkMode}
             map={map}
           />
         );
@@ -210,7 +213,7 @@ const Mapping = () => {
   // render different file that represents different map
   // default is noselected map
   return (
-    <Container ref={mappingRef}>
+    <Container ref={mappingRef} $isDarkMode={isDarkMode}>
       <Particles
         id="tsparticles"
         init={particlesInit}
@@ -292,7 +295,7 @@ const Mapping = () => {
       ) : (
         <>
           {handleSwitchRenderMap()}
-          <Legend>
+          <Legend $isDarkMode={isDarkMode}>
             {showLegend ? (
               <>
                 <div className="buttons">
@@ -315,6 +318,16 @@ const Mapping = () => {
                   />
                 </div>
                 <div className="legends">
+                  <div className="desc color-mode">
+                    <div
+                      className="switch-wrapper"
+                      onClick={() => setIsDarkMode(!isDarkMode)}
+                    >
+                      <div className="switch"></div>
+                    </div>
+                    {isDarkMode ? "DARK" : "LIGHT"}
+                  </div>
+
                   <div className="desc">
                     <div className="reserve"></div>
                     <p>Reserve</p>
@@ -654,7 +667,7 @@ const Container = styled.div`
   width: 100%;
   position: relative;
   overflow-y: hidden;
-  background: #f2f2f8;
+  background-color: ${(props) => (props.$isDarkMode ? "#1a1a1a" : "#f2f2f8")};
   z-index: 3;
 
   & #tsparticles {
@@ -686,6 +699,7 @@ const Legend = styled.div`
     width: 20px;
     height: 20px;
     margin: 1em 0.5em;
+    margin-bottom: 0.2em;
     cursor: pointer;
 
     &:hover {
@@ -694,10 +708,43 @@ const Legend = styled.div`
   }
 
   & .legends {
-    padding: 0.5em;
+    padding: 0.3em;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    & .desc.color-mode {
+      width: 80%;
+      display: flex;
+      padding: 0;
+      margin: 0;
+      margin-bottom: 0.3em;
+
+      & .switch-wrapper {
+        width: 100%;
+        height: 20px;
+        margin: 0;
+        padding: 0.1em 0.2em;
+        border-radius: 1rem;
+        background: var(--darkblue);
+        margin-right: 0.5em;
+        position: relative;
+
+        & .switch {
+          height: 15px;
+          width: 15px;
+          background: var(--grayfont);
+          border-radius: 50%;
+          margin: 0;
+          transition: all 150ms;
+          position: absolute;
+          top: 50%;
+          left: ${(props) =>
+            props.$isDarkMode ? "calc(100% - (15px + 0.1em))" : "0.1em"};
+          transform: translateY(-50%);
+        }
+      }
+    }
 
     & .desc {
       display: flex;

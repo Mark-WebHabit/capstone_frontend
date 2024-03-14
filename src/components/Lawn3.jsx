@@ -9,7 +9,7 @@ import {
 } from "../features/restApiSlice";
 import LoadingScreen from "./LoadingScreen";
 
-const Lawn3 = ({ selectedPlot, setSelectedPlot, map }) => {
+const Lawn3 = ({ selectedPlot, setSelectedPlot, map, isDarkMode }) => {
   const frame1Ref = useRef();
   const frame2Ref = useRef();
   const containerRef = useRef();
@@ -34,6 +34,8 @@ const Lawn3 = ({ selectedPlot, setSelectedPlot, map }) => {
     width: 0,
     height: 0,
   });
+
+  const [individualPlotName, setIndividualPlotName] = useState("");
 
   useEffect(() => {
     dispatch(clearAreaPlots());
@@ -101,6 +103,13 @@ const Lawn3 = ({ selectedPlot, setSelectedPlot, map }) => {
   const frame2Row10 = Array.from({ length: 15 });
   const frame2Row11 = Array.from({ length: 1 });
 
+  const handleHover = (e) => {
+    setIndividualPlotName(e.target.getAttribute("name"));
+  };
+  const handleMouseLeave = () => {
+    setIndividualPlotName("");
+  };
+
   const renderRow = (arr = [], plotNum = 0, frame, margin = 0) => {
     const width = frame.width * arr.length;
     const height = frame.height;
@@ -129,6 +138,9 @@ const Lawn3 = ({ selectedPlot, setSelectedPlot, map }) => {
                 setSelectedPlot(e.target.getAttribute("data-name"));
                 dispatch(getPlotInfo(e.target.getAttribute("data-name")));
               }}
+              $name={individualPlotName}
+              onMouseEnter={handleHover}
+              onMouseLeave={handleMouseLeave}
             ></Plot>
           );
         })}
@@ -163,6 +175,7 @@ const Lawn3 = ({ selectedPlot, setSelectedPlot, map }) => {
         if (matched) {
           plot.setAttribute("id", matched.status);
           plot.setAttribute("data-name", matched._id);
+          plot.setAttribute("name", matched.plotName);
         }
       });
     }
@@ -174,7 +187,9 @@ const Lawn3 = ({ selectedPlot, setSelectedPlot, map }) => {
         plotArr.forEach((plot) => {
           if (plot.getAttribute("data-name") == selectedPlot) {
             plot.style.background = "aqua";
+            plot.style.borderColor = "aqua";
           } else {
+            plot.style.borderColor = "black";
             switch (plot.getAttribute("id")) {
               case "reserve":
                 plot.style.background = "#e6e600";
@@ -255,7 +270,7 @@ const Lawn3 = ({ selectedPlot, setSelectedPlot, map }) => {
                     {renderRow(frame2Row11, "E", plotFrame2Size)}
                   </>
                 )}
-                <RoadExt></RoadExt>
+                <RoadExt $isDarkMode={isDarkMode}></RoadExt>
               </PlotContainer>
             </Frame2>
           </>
@@ -279,10 +294,8 @@ const Main = styled.div`
     overflow: hidden;
   }
 
-  & *{
-  overflow: hidden;
-
-  }
+  
+ 
 `;
 
 const Container = styled.div`
@@ -464,9 +477,9 @@ const Frame1 = styled.div`
 
   & div.border {
     height: calc(100% * 0.30752);
-    width: 120%;
+    width: 100%;
     position: relative;
-    right: -10%;
+    right: 0%;
     border: none;
     border-style: solid;
     border-color: black;
@@ -512,7 +525,7 @@ const Frame2 = styled.div`
   align-items: center;
   gap: 7.52211%;
   z-index: 1;
-  // background: #f2f2f8;
+
   @media (max-width: 500px) {
     border-width: 8px;
   }
@@ -526,6 +539,7 @@ const Frame2 = styled.div`
     border-left: 1px;
     border-top: 1px;
     border-right: none;
+
     @media (max-width: 500px) {
       border-width: 8px;
     }
@@ -536,11 +550,57 @@ const Plot = styled.div`
   height: 100%;
   border: 1px solid black;
   cursor: pointer;
+  position: relative;
 
   &:hover {
     box-shadow: 0px 0px 18px 14px aqua inset;
     -webkit-box-shadow: 0px 0px 18px 14px aqua inset;
     -moz-box-shadow: 0px 0px 18px 14px aqua inset;
+
+    &::after {
+      position: absolute;
+      content: "${(props) => props.$name}";
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      background: url(/images/chat.png) no-repeat center center / contain;
+      backdrop-filter: blur(3px);
+      padding: 0.5em;
+      padding-bottom: 1em;
+      -webkit-backdrop-filter: blur(3px);
+      font-size: 1.3rem;
+      font-weight: bold;
+      pointer-events: none;
+      color: white;
+
+      @media (max-width: 1400px) {
+        font-size: 1.5rem;
+      }
+      @media (max-width: 1270px) {
+        font-size: 3rem;
+      }
+
+      @media (max-width: 950px) {
+        font-size: 3.5rem;
+      }
+      @media (max-width: 905px) {
+        font-size: 5rem;
+      }
+      @media (max-width: 800px) {
+        font-size: 5.5rem;
+      }
+      @media (max-width: 740px) {
+      }
+      @media (max-width: 680px) {
+        font-size: 10rem;
+      }
+      @media (max-width: 600px) {
+        font-size: 13rem;
+      }
+      @media (max-width: 550px) {
+        font-size: 13.5rem;
+      }
+    }
   }
 
   @media (max-width: 500px) {
@@ -584,6 +644,7 @@ const Road = styled.div`
       border-top-right-radius: 45%;
       border-bottom-right-radius: 45%;
       padding: 2px;
+
       @media (max-width: 800px) {
         border-width: 8px;
         padding: 10px;
@@ -595,6 +656,7 @@ const Road = styled.div`
         display: flex;
         align-items: center;
         justify-ontent: flex-start;
+
         @media (max-width: 800px) {
           border-width: 8px;
         }
@@ -612,7 +674,7 @@ const RoadExt = styled.div`
   z-index: 2;
   border-left: none;
   border-right: none;
-  background: #f2f2f8;
+  background: ${(props) => (props.$isDarkMode ? "#1a1a1a" : "f2f2f8")};
 
   @media (max-width: 800px) {
     border-width: 8px;

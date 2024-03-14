@@ -22,6 +22,8 @@ const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
   const [showLawnContainer, setShowLawnContainer] = useState(false);
   const [showPlots, setShowPlots] = useState(false);
 
+  const [individualPlotName, setIndividualPlotName] = useState("");
+
   const [plotSize, setPlotSize] = useState({
     width: 0,
     height: 0,
@@ -79,6 +81,13 @@ const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
 
   const lawn1PlotRow1 = Array.from({ length: 12 }, (_, index) => 205 + index);
 
+  const handleHover = (e) => {
+    setIndividualPlotName(e.target.getAttribute("name"));
+  };
+  const handleMouseLeave = () => {
+    setIndividualPlotName("");
+  };
+
   // rendering the divs that represent the plots
   const renderRow = (arr, plotNum) => {
     return (
@@ -98,10 +107,14 @@ const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
             }}
             key={index}
             $width={plotSize.width}
+            // $dataName={getDataName}
             onClick={(e) => {
               setSelectedPlot(e.target.getAttribute("data-name"));
               dispatch(getPlotInfo(e.target.getAttribute("data-name")));
             }}
+            $name={individualPlotName}
+            onMouseEnter={handleHover}
+            onMouseLeave={handleMouseLeave}
           ></Plot>
         ))}
       </div>
@@ -125,6 +138,7 @@ const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
         if (matched) {
           plot.setAttribute("id", matched.status);
           plot.setAttribute("data-name", matched._id);
+          plot.setAttribute("name", matched.plotName);
         }
       });
     }
@@ -136,8 +150,9 @@ const Lawn1 = ({ selectedPlot, setSelectedPlot, map }) => {
         plotArr.forEach((plot) => {
           if (plot.getAttribute("data-name") == selectedPlot) {
             plot.style.background = "aqua";
-            plot.style.border = "2px solid aqua";
+            plot.style.borderColor = "aqua";
           } else {
+            plot.style.borderColor = "black";
             switch (plot.getAttribute("id")) {
               case "reserve":
                 plot.style.background = "#e6e600";
@@ -254,11 +269,29 @@ const Plot = styled.div`
   width: ${(props) => props.$width}px;
   min-height: 100%;
   cursor: pointer;
+  position: relative;
 
   &:hover {
     box-shadow: 0px 0px 18px 14px aqua inset;
     -webkit-box-shadow: 0px 0px 18px 14px aqua inset;
     -moz-box-shadow: 0px 0px 18px 14px aqua inset;
+
+    &::after {
+      position: absolute;
+      content: "${(props) => props.$name}";
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      background: url(/images/chat.png) no-repeat center center / contain;
+      backdrop-filter: blur(3px);
+      padding: 0.5em;
+      padding-bottom: 1em;
+      -webkit-backdrop-filter: blur(3px);
+      font-size: 1.3rem;
+      font-weight: bold;
+      pointer-events: none;
+      color: white;
+    }
   }
 `;
 

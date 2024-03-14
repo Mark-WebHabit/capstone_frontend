@@ -82,6 +82,10 @@ const Conatiner = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 720px) {
+    padding: 2em 0;
+  }
 `;
 const Wrapper = styled.div`
   color: #ffffff;
@@ -91,6 +95,11 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
+  @media (max-width: 970px) {
+    padding-top: 2em;
+    justify-content: center;
+  }
 
   @media (max-width: 600px) {
     justify-content: center;
@@ -120,9 +129,10 @@ const CardContainer = styled.div`
   gap: 3em;
 
   @media (max-width: 970px) {
-    align-items: flex-start;
+    align-items: center;
     padding-bottom: 0;
-    padding-top: 3em;
+    padding-top: 2em;
+    flex-direction: column;
   }
   @media (max-width: 720px) {
     padding-top: 5em;
@@ -153,8 +163,11 @@ const Card = styled.div`
     scale: 1.1;
   }
 
-  @media (max-width: 720px) {
-    width: ${(props) => props.$width && Math.round(props.$width / 3.5)}px;
+  @media (max-width: 970px) {
+    max-width: 100%;
+    width: 80%;
+    aspect-ratio: unset;
+    padding: 2em 0;
   }
 
   @media (max-width: 600px) {
@@ -172,6 +185,10 @@ const Card = styled.div`
 const Icon = styled.img`
   width: 30%;
   margin: 0 auto;
+
+  @media (max-width: 970px) {
+    width: 10%;
+  }
 
   @media (max-width: 600px) {
     width: 10%;

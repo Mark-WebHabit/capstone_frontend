@@ -24,6 +24,8 @@ const Lawn4 = ({ selectedPlot, setSelectedPlot, map }) => {
     height: 0,
   });
 
+  const [individualPlotName, setIndividualPlotName] = useState("");
+
   useEffect(() => {
     dispatch(clearAreaPlots());
     dispatch(getAreaPlots("Lawn4"));
@@ -84,6 +86,13 @@ const Lawn4 = ({ selectedPlot, setSelectedPlot, map }) => {
   const frame2Plots = Array.from({ length: 31 });
   const frame3Plots = Array.from({ length: 31 });
 
+  const handleHover = (e) => {
+    setIndividualPlotName(e.target.getAttribute("name"));
+  };
+  const handleMouseLeave = () => {
+    setIndividualPlotName("");
+  };
+
   const renderRows = (arr = [], plotNum = 0, margin = null, flag = false) => {
     const width = plotSize.width * arr.length;
     const marginLeft = margin ? plotSize.width * margin : 0;
@@ -117,6 +126,9 @@ const Lawn4 = ({ selectedPlot, setSelectedPlot, map }) => {
                 setSelectedPlot(e.target.getAttribute("data-name"));
                 dispatch(getPlotInfo(e.target.getAttribute("data-name")));
               }}
+              $name={individualPlotName}
+              onMouseEnter={handleHover}
+              onMouseLeave={handleMouseLeave}
             ></Plot>
           );
         })}
@@ -140,6 +152,7 @@ const Lawn4 = ({ selectedPlot, setSelectedPlot, map }) => {
         if (matched) {
           plot.setAttribute("id", matched.status);
           plot.setAttribute("data-name", matched._id);
+          plot.setAttribute("name", matched.plotName);
         }
       });
     }
@@ -151,7 +164,9 @@ const Lawn4 = ({ selectedPlot, setSelectedPlot, map }) => {
         plotArr.forEach((plot) => {
           if (plot.getAttribute("data-name") == selectedPlot) {
             plot.style.background = "aqua";
+            plot.style.borderColor = "aqua";
           } else {
+            plot.style.borderColor = "black";
             switch (plot.getAttribute("id")) {
               case "reserve":
                 plot.style.background = "#e6e600";
@@ -267,10 +282,28 @@ const Plot = styled.div`
   cursor: pointer;
   pointer-events: initial;
 
+  position: relative;
   &:hover {
     box-shadow: 0px 0px 18px 14px aqua inset;
     -webkit-box-shadow: 0px 0px 18px 14px aqua inset;
     -moz-box-shadow: 0px 0px 18px 14px aqua inset;
+
+    &::after {
+      position: absolute;
+      content: "${(props) => props.$name}";
+      top: 100%;
+      right: -50%;
+      transform: translate(-50%, -100%);
+      background: url(/images/chat.png) no-repeat center center / contain;
+      backdrop-filter: blur(3px);
+      padding: 0.5em;
+      padding-bottom: 1em;
+      -webkit-backdrop-filter: blur(3px);
+      font-size: 1.3rem;
+      font-weight: bold;
+      pointer-events: none;
+      color: white;
+    }
   }
 `;
 
