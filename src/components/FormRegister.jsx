@@ -101,62 +101,63 @@ const FormRegister = () => {
           Terms and Conditions for Holyangels Memorial Park Mapping and
           Information System
           <br /> <br />
-          1. Introduction Thank you for choosing Holyangels Memorial Park
-          Mapping and Information System ("Service"). These Terms and Conditions
-          govern your access to and use of our Service, which helps users
-          navigate and obtain information about Holyangels Memorial Park. By
-          accessing or using our Service, you agree to abide by these Terms.
+          Introduction <br />
+          Thank you for choosing Holyangels Memorial Park Mapping and
+          Information System ("Service"). These Terms and Conditions govern your
+          access to and use of our Service, which helps users navigate and
+          obtain information about Holyangels Memorial Park. By accessing or
+          using our Service, you agree to abide by these Terms.
           <br /> <br />
-          2. Service Description Holyangels Memorial Park Mapping and
+          Service Description <br /> Holyangels Memorial Park Mapping and
           Information System provides interactive digital maps and informational
           resources about the cemetery, helping visitors locate gravesites,
           amenities, and other park features. This Service is designed for
           support and guidance within the cemetery grounds.
           <br /> <br />
-          3. Collection of Personal Information We collect your contact
+          Collection of Personal Information <br /> We collect your contact
           information, name, and email address solely for the purpose of
           enhancing your user experience and facilitating effective
           communication related to the services provided by the cemetery. We are
           committed to respecting your privacy and the sensitive nature of the
           information we handle.
           <br /> <br />
-          4. Cookies and Session Tokens Our Service utilizes cookies and session
-          tokens to personalize and enhance your interaction with our website.
-          These tools help maintain your session integrity and store your
-          preferences for future visits. You can adjust your browser settings to
-          decline cookies if you prefer.
+          Cookies and Session Tokens <br /> Our Service utilizes cookies and
+          session tokens to personalize and enhance your interaction with our
+          website. These tools help maintain your session integrity and store
+          your preferences for future visits. You can adjust your browser
+          settings to decline cookies if you prefer.
           <br /> <br />
-          5. Respectful Use Policy As this Service pertains to a cemetery, we
-          ask that you engage with our platform respectfully and sensitively.
+          Respectful Use Policy <br /> As this Service pertains to a cemetery,
+          we ask that you engage with our platform respectfully and sensitively.
           The information should be used in a manner that maintains the dignity
           and solemnity of the cemetery environment.
           <br /> <br />
-          6. Intellectual Property The content displayed on the Service,
+          Intellectual Property <br /> The content displayed on the Service,
           including but not limited to maps, texts, and graphical
           representations, is owned by or licensed to Holyangels Memorial Park.
           This content is protected by copyright and intellectual property laws.
           <br /> <br />
-          7. No Commercial Use This Service is provided for personal,
+          No Commercial Use <br /> This Service is provided for personal,
           non-commercial use only. Users are prohibited from exploiting any part
           of the Service for commercial purposes without explicit permission
           from Holyangels Memorial Park.
           <br /> <br />
-          8. Disclaimer of Warranties The Service is provided on an "as is"
+          Disclaimer of Warranties <br /> The Service is provided on an "as is"
           basis. Holyangels Memorial Park makes no warranties regarding the
           completeness, reliability, or accuracy of the information provided
           through the Service.
           <br /> <br />
-          9. Limitation of Liability Holyangels Memorial Park, including its
+          Limitation of Liability Holyangels Memorial Park, including its
           affiliates and staff, will not be liable for any damages resulting
           from the use of this Service. This limitation of liability is
           comprehensive and applies to all damages of any kind.
           <br /> <br />
-          10. Amendments to Terms We reserve the right to modify these Terms at
-          any time. Changes will be effective immediately upon posting to the
+          Amendments to Terms <br /> We reserve the right to modify these Terms
+          at any time. Changes will be effective immediately upon posting to the
           website. Your continued use of the Service after such changes will
           constitute your agreement to the new Terms.
           <br /> <br />
-          11. Contact Information For questions or concerns regarding these
+          Contact Information <br /> For questions or concerns regarding these
           Terms or the Service, please contact us at
           holyangelsmemorialpark69@gmail.com.
         </p>
