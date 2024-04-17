@@ -205,12 +205,6 @@ const Personnel = () => {
                             >
                               Guest
                             </li>
-                            <li>
-                              <input
-                                type="text"
-                                placeholder="Others please specify"
-                              />
-                            </li>
                           </ul>
                         </form>
                       )}

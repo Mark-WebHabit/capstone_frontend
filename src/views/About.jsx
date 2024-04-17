@@ -79,8 +79,8 @@ const About = () => {
         <Principles>
           <p className="title">PRINCIPLES</p>{" "}
           <p>
-            1. We will give capable and intelligent directions in the management
-            of the ----??? <br />
+            {/* 1. We will give capable and intelligent directions in the management
+            of the ----??? <br /> */}
             <br /> We will find ways to be first effective and to be efficient
             in the utilization of resources, operation of the business:
             manpower, machinery, materials, and methods. <br />

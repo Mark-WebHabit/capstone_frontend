@@ -68,7 +68,7 @@ const FormForgotPass = ({ decodedToken }) => {
     const response = await dispatch(
       changePassPost({ token: decodedToken, password: datas.password })
     );
-
+    console.log(response);
     if (!error || !errorMessage) {
       navigate("/auth");
     }
