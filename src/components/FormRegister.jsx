@@ -273,7 +273,7 @@ const Container = styled.form`
 const DarkOpacity = styled.div`
   height: 100vh;
   width: 100vw;
-  position: absolute;
+  position: fixed;
   background-color: rgba(0, 0, 0, 0.5);
   top: 0;
   left: 0;
