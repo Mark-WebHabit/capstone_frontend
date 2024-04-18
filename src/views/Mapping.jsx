@@ -91,6 +91,13 @@ const Mapping = () => {
     }
   }, [mapIndex, mappingRef.current]);
 
+  useEffect(() => {
+    if (!selectedPlot) {
+      return;
+    }
+    setShowSidebar(true);
+  }, [selectedPlot]);
+
   // put a delay before setting the loading to falase
 
   const showMap = useCallback(async () => {

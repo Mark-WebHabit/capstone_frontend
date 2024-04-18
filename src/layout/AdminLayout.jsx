@@ -30,13 +30,13 @@ const AdminLayout = () => {
     window.addEventListener("resize", h);
   }, []);
 
-  useEffect(() => {
-    if (!isDesktop) {
-      setScreenError(
-        "Screen size small, make sure you are using a DESKTOP or LAPTOP before operating"
-      );
-    }
-  }, [isDesktop]);
+  // useEffect(() => {
+  //   if (!isDesktop) {
+  //     setScreenError(
+  //       "Screen size small, make sure you are using a DESKTOP or LAPTOP before operating"
+  //     );
+  //   }
+  // }, [isDesktop]);
 
   return (
     <Container>

@@ -67,10 +67,12 @@ const Profile = () => {
   const handleChangePassword = async (e) => {
     e.preventDefault();
     if (!pass.currentPass || !pass.newPass || !pass.confirmPass) {
+      alert("Provide all necessary informations");
       return; // empty fields
     }
 
     if (pass.confirmPass !== pass.newPass) {
+      alert("New Password and Confirm Passwords dont macthed");
       return; // password do not macthed
     }
 

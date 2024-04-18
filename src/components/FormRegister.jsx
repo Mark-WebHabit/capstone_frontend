@@ -83,6 +83,7 @@ const FormRegister = () => {
     }
 
     if (!check) {
+      alert("Read the terms and condition");
       return;
     }
     let credentials = {
@@ -98,8 +99,14 @@ const FormRegister = () => {
     <Terms>
       <div className="terms-wrapper">
         <p>
-          Terms and Conditions for Holyangels Memorial Park Mapping and
-          Information System
+          <span
+            style={{
+              color: "#000470",
+              fontWeight: "bold",
+            }}
+          >
+            Terms and Conditions
+          </span>
           <br /> <br />
           Introduction <br />
           Thank you for choosing Holyangels Memorial Park Mapping and
@@ -201,6 +208,15 @@ const FormRegister = () => {
           value={datas.email}
           onChange={(e) => handleOnChange(e)}
         />
+        <small
+          style={{
+            color: "#000470",
+            fontSize: "0.8rem",
+            textAlign: "left",
+          }}
+        >
+          Enter a valid email address
+        </small>
       </InputContainer>
       <InputContainer>
         <InputLabel htmlFor="username">Username</InputLabel>
@@ -211,6 +227,15 @@ const FormRegister = () => {
           value={datas.username}
           onChange={(e) => handleOnChange(e)}
         />
+        <small
+          style={{
+            color: "#000470",
+            fontSize: "0.8rem",
+            textAlign: "left",
+          }}
+        >
+          Username must be 4 characters and above
+        </small>
       </InputContainer>
       <InputContainer>
         <InputLabel htmlFor="password">Password</InputLabel>
@@ -221,6 +246,15 @@ const FormRegister = () => {
           value={datas.password}
           onChange={(e) => handleOnChange(e)}
         />
+        <small
+          style={{
+            color: "#000470",
+            fontSize: "0.8rem",
+            textAlign: "left",
+          }}
+        >
+          Password length must be 8 characters and aboove
+        </small>
       </InputContainer>
       <InputFooter>
         <CheckBoxContainer onClick={() => setCheck(!check)}>
@@ -393,10 +427,10 @@ const ForgotPass = styled.p`
 const Button = styled.button`
   margin: 1em 0 0 0;
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-family: "Roboto";
   font-weight: 500;
-  padding: 0.5em;
+  padding: 0.2em 0.5em;
   border-radius: 2.5em;
   border: 1px solid var(--blue);
   background-color: #fff;

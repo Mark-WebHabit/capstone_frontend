@@ -20,7 +20,10 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, name, subject, message } = datas;
-    if (!email || !name || !subject || !message) return;
+    if (!email || !name || !subject || !message) {
+      alert("Provide necessary Informations");
+      return;
+    }
 
     await dispatch(sendEmail(datas));
 
@@ -226,6 +229,7 @@ const Text = styled.p`
 const Form = styled.div`
   flex: 1;
   width: 50%;
+  max-width: 600px;
   align-self: flex-end;
   position: relative;
   bottom: -5em;
@@ -311,8 +315,8 @@ const InputField = styled.div`
 
     & textarea {
       width: 100%;
-      max-height: 300px;
-      height: 300px;
+      max-height: 200px;
+      height: 200px;
       resize: none;
       border: none;
       padding: 1em;
