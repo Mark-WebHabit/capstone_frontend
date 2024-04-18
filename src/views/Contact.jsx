@@ -30,6 +30,8 @@ const Contact = () => {
     if (error) {
       return;
     }
+
+    alert("Email Sent Successfully");
     setDatas({
       email: "",
       name: "",
