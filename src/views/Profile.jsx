@@ -208,7 +208,6 @@ const Profile = () => {
               type="reset"
               value="CANCEL"
               onClick={() => {
-                return;
                 setPass({
                   currentPass: "",
                   newPass: "",

@@ -172,12 +172,10 @@ const Admin = () => {
         setCurrentButtonView((oldval) => (oldval += 1));
       }
     } else {
-      return;
-      // if (currentButtonView - 1 < 1) {
-      //   return;
-      // } else {
-      //   setCurrentButtonView((oldval) => (oldval -= 1));
-      // }
+      if (currentButtonView - 1 < 1) {
+      } else {
+        setCurrentButtonView((oldval) => (oldval -= 1));
+      }
     }
   };
 

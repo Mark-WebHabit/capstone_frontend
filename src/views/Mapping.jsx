@@ -214,7 +214,7 @@ const Mapping = () => {
   // default is noselected map
   return (
     <Container ref={mappingRef} $isDarkMode={isDarkMode}>
-      <Particles
+      {/* <Particles
         id="tsparticles"
         init={particlesInit}
         loaded={particlesLoaded}
@@ -287,7 +287,7 @@ const Mapping = () => {
           },
           detectRetina: true,
         }}
-      />
+      /> */}
       {mapLoading ? (
         <Loading>
           <h1>Loading...</h1>
