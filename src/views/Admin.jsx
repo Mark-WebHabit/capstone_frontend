@@ -164,20 +164,21 @@ const Admin = () => {
   }, [pages, currentButtonView]);
 
   const handleSetCUrrentButtonView = (method) => {
-    const maxPages = Math.ceil(pages.length / 5);
-    if (method == "increment") {
-      if (currentButtonView + 1 > maxPages) {
-        return;
-      } else {
-        setCurrentButtonView((oldval) => (oldval += 1));
-      }
-    } else {
-      if (currentButtonView - 1 < 1) {
-        return;
-      } else {
-        setCurrentButtonView((oldval) => (oldval -= 1));
-      }
-    }
+    return;
+    // const maxPages = Math.ceil(pages.length / 5);
+    // if (method == "increment") {
+    //   if (currentButtonView + 1 > maxPages) {
+    //     return;
+    //   } else {
+    //     setCurrentButtonView((oldval) => (oldval += 1));
+    //   }
+    // } else {
+    //   if (currentButtonView - 1 < 1) {
+    //     return;
+    //   } else {
+    //     setCurrentButtonView((oldval) => (oldval -= 1));
+    //   }
+    // }
   };
 
   const handleUpdateStatus = async (e, id, status) => {
