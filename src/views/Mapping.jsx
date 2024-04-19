@@ -417,7 +417,7 @@ const Mapping = () => {
                         <span className="name">Name:</span>
                         {plotInfo.name}
                       </p>
-                      <p className="row">
+                      {/* <p className="row">
                         <span className="age">Age:</span>
                         {plotInfo.age}
                       </p>
@@ -428,7 +428,7 @@ const Mapping = () => {
                       <p className="row">
                         <span className="died">Died:</span>
                         {plotInfo.deathDate}
-                      </p>
+                      </p> */}
                       <p className="row">
                         <span className="plot">Plot:</span>
                         {plotInfo.plotName}
@@ -556,7 +556,7 @@ const Mapping = () => {
                         <span className="name">Name:</span>
                         {plotInfo.name}
                       </p>
-                      <p className="row">
+                      {/* <p className="row">
                         <span className="age">Age:</span>
                         {plotInfo.age}
                       </p>
@@ -567,7 +567,7 @@ const Mapping = () => {
                       <p className="row">
                         <span className="died">Died:</span>
                         {plotInfo.deathDate}
-                      </p>
+                      </p> */}
                       <p className="row">
                         <span className="plot">Plot:</span>
                         {plotInfo.plotName}
