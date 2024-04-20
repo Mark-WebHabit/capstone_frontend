@@ -96,6 +96,7 @@ const Mapping = () => {
       return;
     }
     setShowSidebar(true);
+    setShowBottomBar(true);
   }, [selectedPlot]);
 
   // put a delay before setting the loading to falase
