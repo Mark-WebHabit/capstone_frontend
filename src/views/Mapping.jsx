@@ -484,14 +484,14 @@ const Mapping = () => {
                         <span className="name">Name:</span>
                         {result?.name}
                       </p>
-                      <p className="row">
+                      {/* <p className="row">
                         <span className="born">Born:</span>
                         {result?.birthDate}
                       </p>
                       <p className="row">
                         <span className="died">Died:</span>
                         {result?.deathDate}
-                      </p>
+                      </p> */}
                       <p className="row">
                         <span className="lawn">Loc:</span>
                         {result?.lawn}
@@ -623,14 +623,14 @@ const Mapping = () => {
                         <span className="name">Name:</span>
                         {result?.name}
                       </p>
-                      <p className="row">
+                      {/* <p className="row">
                         <span className="born">Born:</span>
                         {result?.birthDate}
                       </p>
                       <p className="row">
                         <span className="died">Died:</span>
                         {result?.deathDate}
-                      </p>
+                      </p> */}
                       <p className="row">
                         <span className="lawn">Loc:</span>
                         {result?.lawn}
