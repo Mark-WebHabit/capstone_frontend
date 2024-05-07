@@ -720,7 +720,7 @@ const InfoForm = styled.div`
   place-items: center;
 
   & form {
-    padding: 1em;
+    padding: 2em;
     background: white;
     display: flex;
     flex-direction: column;
@@ -734,6 +734,7 @@ const InfoForm = styled.div`
 
     & h2 {
       font-weight: 800;
+      font-size: 2rem;
     }
 
     & .inputDiv {
@@ -746,7 +747,7 @@ const InfoForm = styled.div`
         outline: none;
         border: 1px solid black;
         padding: 0.3em 0.5em;
-        font-size: 1rem;
+        font-size: 1.5rem;
       }
 
       & div {
@@ -767,7 +768,7 @@ const InfoForm = styled.div`
         width: 20%;
         padding: 0.5em 0;
         cursor: pounter;
-        font-size: 1rem;
+        font-size: 1.3rem;
         font-weight: 800;
         color: #595959;
       }
