@@ -802,7 +802,7 @@ const Loading = styled.div`
 
 const SideBarForTabletAndDesktop = styled.div`
   width: ${(props) => (props.$showSideBar ? "60%" : "0px")};
-  max-width: 500px;
+  max-width: 600px;
   height: 100%;
   border: 1px solid black;
   position: absolute;
@@ -909,6 +909,7 @@ const Wrapper = styled.div`
         text-transform: capitalized;
         font-family: "Roboto", sans-serif;
         font-weight: 500;
+        font-size: 1.3rem;
 
         & span:first-child {
           flex-basis: 20%;
@@ -928,7 +929,7 @@ const SearchResults = styled.div`
 
   & .noMatched {
     color: white;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-family: "Roboto", sans-seif;
     text-align: center;
     margin: 2em 0;
@@ -982,6 +983,7 @@ const Result = styled.div`
     text-transform: capitalized;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
+    font-size: 1.3rem;
 
     & span:first-child {
       flex-basis: 20%;
