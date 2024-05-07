@@ -689,9 +689,9 @@ const Container = styled.div`
 const Legend = styled.div`
   position: absolute;
   width: auto;
-  max-width: 200px;
+  max-width: 500px;
   height: auto;
-  max-height: 300px;
+  max-height: 600px;
   background-color: white;
   z-index: 10;
   top: 1em;
@@ -704,8 +704,8 @@ const Legend = styled.div`
   transition: all 150ms;
 
   & .buttons img {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     margin: 1em 0.5em;
     margin-bottom: 0.2em;
     cursor: pointer;
@@ -760,7 +760,7 @@ const Legend = styled.div`
 
       & p {
         font-family: "Roboto", sans-serf;
-        font-size: 0.9rem;
+        font-size: 1.5rem;
       }
 
       & div {
